@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'CCUnreadManager_Example' do
+  pod 'CCUnreadManager', :path => '../'
+
+  target 'CCUnreadManager_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

@@ -1,0 +1,23 @@
+PODS:
+  - CCUnreadManager (0.1.0):
+    - Masonry (= 1.1.0)
+  - Masonry (1.1.0)
+
+DEPENDENCIES:
+  - CCUnreadManager (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Masonry
+
+EXTERNAL SOURCES:
+  CCUnreadManager:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CCUnreadManager: 5e6ffdf7a9f4579bfd83953150c1103c8ef1ccd3
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+
+PODFILE CHECKSUM: d180fcf1dfe4dd500a318addcc4d319104ab5cf4
+
+COCOAPODS: 1.11.2

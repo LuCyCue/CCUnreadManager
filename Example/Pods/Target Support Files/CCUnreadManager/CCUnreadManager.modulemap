@@ -1,0 +1,6 @@
+framework module CCUnreadManager {
+  umbrella header "CCUnreadManager-umbrella.h"
+
+  export *
+  module * { export * }
+}
