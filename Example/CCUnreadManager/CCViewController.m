@@ -26,10 +26,10 @@
 
 - (void)dealloc {
     //移除监听
-    [[CCUnreadService shareInstance] removeNodeObserver:self uid:kUnreadNodeHome];
-    [[CCUnreadService shareInstance] removeNodeObserver:self uid:kUnreadNodeMoment];
-    [[CCUnreadService shareInstance] removeNodeObserver:self uid:kUnreadNodeMessage];
-    [[CCUnreadService shareInstance] removeNodeObserver:self uid:kUnreadNodeMine];
+    [CCUnreadService removeNodeObserver:self uid:kUnreadNodeHome];
+    [CCUnreadService removeNodeObserver:self uid:kUnreadNodeMoment];
+    [CCUnreadService removeNodeObserver:self uid:kUnreadNodeMessage];
+    [CCUnreadService removeNodeObserver:self uid:kUnreadNodeMine];
 }
 
 - (void)viewDidLoad {
@@ -66,10 +66,7 @@
     self.tabBar.shadowImage = UIImage.new;
     self.tabBar.backgroundImage = UIImage.new;
     self.tabBar.backgroundColor = UIColor.whiteColor;
-    [[CCUnreadService shareInstance] addNodeObserver:self uid:kUnreadNodeHome];
-    [[CCUnreadService shareInstance] addNodeObserver:self uid:kUnreadNodeMoment];
-    [[CCUnreadService shareInstance] addNodeObserver:self uid:kUnreadNodeMessage];
-    [[CCUnreadService shareInstance] addNodeObserver:self uid:kUnreadNodeMine];
+    [CCUnreadService addBatchNodesObserver:self uids:@[kUnreadNodeHome,kUnreadNodeMoment,kUnreadNodeMessage,kUnreadNodeMine]];
 }
 
 #pragma mark - CCUnreadUpdateProtocol

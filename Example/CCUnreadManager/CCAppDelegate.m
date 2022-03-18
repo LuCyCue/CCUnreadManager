@@ -14,8 +14,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [CCUnreadService shareInstance].dataSource = CCUnreadNodeConfigs.class;
-    [[CCUnreadService shareInstance] start];
+    [CCUnreadService startWithDataSource:CCUnreadNodeConfigs.class];
     return YES;
 }
 

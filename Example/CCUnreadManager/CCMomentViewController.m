@@ -19,7 +19,7 @@
 @implementation CCMomentViewController
 
 - (void)dealloc {
-    [[CCUnreadService shareInstance] removeNodeObserver:self uid:kUnreadNodeMomentSub1];
+    [CCUnreadService removeNodeObserver:self uid:kUnreadNodeMomentSub1];
 }
 
 - (void)viewDidLoad {
@@ -58,12 +58,12 @@
         return badgeView;
     };
     self.activityView = activityView;
-    [[CCUnreadService shareInstance] addNodeObserver:self uid:kUnreadNodeMomentSub1];
+    [CCUnreadService addNodeObserver:self uid:kUnreadNodeMomentSub1];
 }
 
 - (void)testAction {
     CCBadgeType type = arc4random_uniform(2) == 1 ? CCBadgeTypeNumber : CCBadgeTypeCustom;
-    [[CCUnreadService shareInstance] updateWithUid:kUnreadNodeMomentSub1 badgeType:type num:arc4random_uniform(55)];
+    [CCUnreadService updateWithUid:kUnreadNodeMomentSub1 badgeType:type num:arc4random_uniform(55)];
 }
 
 #pragma mark - CCUnreadUpdateProtocol

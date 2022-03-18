@@ -25,7 +25,7 @@
 @implementation CCHomeViewController
 
 - (void)dealloc {
-    [[CCUnreadService shareInstance] removeBatchNodesObserver:self uids:@[kUnreadNodeHomeSub1, kUnreadNodeHomeSub2, kUnreadNodeHomeSub1_1, kUnreadNodeHomeSub1_2, kUnreadNodeHomeSub2_1, kUnreadNodeHomeSub2_2]];
+    [CCUnreadService removeBatchNodesObserver:self uids:@[kUnreadNodeHomeSub1, kUnreadNodeHomeSub2, kUnreadNodeHomeSub1_1, kUnreadNodeHomeSub1_2, kUnreadNodeHomeSub2_1, kUnreadNodeHomeSub2_2]];
 }
 
 - (void)viewDidLoad {
@@ -49,14 +49,14 @@
         }];
     };
 
-    [[CCUnreadService shareInstance] addBatchNodesObserver:self uids:@[kUnreadNodeHomeSub1, kUnreadNodeHomeSub2, kUnreadNodeHomeSub1_1, kUnreadNodeHomeSub1_2, kUnreadNodeHomeSub2_1, kUnreadNodeHomeSub2_2]];
+    [CCUnreadService addBatchNodesObserver:self uids:@[kUnreadNodeHomeSub1, kUnreadNodeHomeSub2, kUnreadNodeHomeSub1_1, kUnreadNodeHomeSub1_2, kUnreadNodeHomeSub2_1, kUnreadNodeHomeSub2_2]];
 }
 
 - (void)testAction {
-    [[CCUnreadService shareInstance] updateWithUid:kUnreadNodeHomeSub1_1 badgeType:arc4random_uniform(4) num:33];
-    [[CCUnreadService shareInstance] updateWithUid:kUnreadNodeHomeSub1_2 badgeType:arc4random_uniform(4) num:33];
-    [[CCUnreadService shareInstance] updateWithUid:kUnreadNodeHomeSub2_1 badgeType:arc4random_uniform(4) num:11];
-    [[CCUnreadService shareInstance] updateWithUid:kUnreadNodeHomeSub2_1 badgeType:arc4random_uniform(4) num:11];
+    [CCUnreadService updateWithUid:kUnreadNodeHomeSub1_1 badgeType:arc4random_uniform(4) num:33];
+    [CCUnreadService updateWithUid:kUnreadNodeHomeSub1_2 badgeType:arc4random_uniform(4) num:33];
+    [CCUnreadService updateWithUid:kUnreadNodeHomeSub2_1 badgeType:arc4random_uniform(4) num:11];
+    [CCUnreadService updateWithUid:kUnreadNodeHomeSub2_1 badgeType:arc4random_uniform(4) num:11];
 }
 
 #pragma mark - CCUnreadUpdateProtocol

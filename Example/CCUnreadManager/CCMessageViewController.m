@@ -18,7 +18,7 @@
 @implementation CCMessageViewController
 
 - (void)dealloc {
-    [[CCUnreadService shareInstance] removeBatchNodesObserver:self uids:@[kUnreadNodeMessageSub1,kUnreadNodeMessageSub2,kUnreadNodeMessageSub3,kUnreadNodeMessageSub4]];
+    [CCUnreadService removeBatchNodesObserver:self uids:@[kUnreadNodeMessageSub1,kUnreadNodeMessageSub2,kUnreadNodeMessageSub3,kUnreadNodeMessageSub4]];
 }
 
 - (void)viewDidLoad {
@@ -35,25 +35,25 @@
         [btn addTarget:self action:@selector(changeConfigAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:btn];
     }];
-    [[CCUnreadService shareInstance] addBatchNodesObserver:self uids:@[kUnreadNodeMessageSub1,kUnreadNodeMessageSub2,kUnreadNodeMessageSub3,kUnreadNodeMessageSub4]];
+    [CCUnreadService addBatchNodesObserver:self uids:@[kUnreadNodeMessageSub1,kUnreadNodeMessageSub2,kUnreadNodeMessageSub3,kUnreadNodeMessageSub4]];
     
 }
 
 - (void)changeConfigAction:(UIButton *)sender {
     switch (sender.tag) {
         case 100:
-            [[CCUnreadService shareInstance] updateWithUid:kUnreadNodeMessageSub1 badgeType:arc4random_uniform(3)+1 num:55];
+            [CCUnreadService updateWithUid:kUnreadNodeMessageSub1 badgeType:arc4random_uniform(3)+1 num:55];
             break;
         case 101: {
             CCBadgeType type = arc4random_uniform(2) == 1 ? CCBadgeTypeNumber : CCBadgeTypeNew;
-            [[CCUnreadService shareInstance] updateWithUid:kUnreadNodeMessageSub2 badgeType:type num:66];
+            [CCUnreadService updateWithUid:kUnreadNodeMessageSub2 badgeType:type num:66];
         }
             break;
         case 102:
-            [[CCUnreadService shareInstance] updateWithUid:kUnreadNodeMessageSub3 badgeType:arc4random_uniform(3)+1 num:77];
+            [CCUnreadService updateWithUid:kUnreadNodeMessageSub3 badgeType:arc4random_uniform(3)+1 num:77];
             break;
         case 103:
-            [[CCUnreadService shareInstance] updateWithUid:kUnreadNodeMessageSub4 badgeType:arc4random_uniform(3)+1 num:55];
+            [CCUnreadService updateWithUid:kUnreadNodeMessageSub4 badgeType:arc4random_uniform(3)+1 num:55];
             break;
             
         default:
@@ -90,7 +90,8 @@
         UIView *targetView = [self.view viewWithTag:103];
         CCBadgeViewConfig *config = CCBadgeViewConfig.new
                                         .configMaxNumLen(arc4random_uniform(2) + 1)
-                                        .configBorderWidth(arc4random_uniform(10));
+                                        .configBorderWidth(arc4random_uniform(10))
+                                        .configBorderColor(UIColor.greenColor);
         [targetView cc_updateBadgeType:node.type badgeConfig:config num:node.num];
     }
 }
