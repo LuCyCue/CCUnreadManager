@@ -18,6 +18,7 @@
 #import "CCUnreadNode.h"
 #import "CCUnreadService.h"
 #import "CCUnreadUpdateProtocol.h"
+#import "CCUnreadWeakProxy.h"
 
 FOUNDATION_EXPORT double CCUnreadManagerVersionNumber;
 FOUNDATION_EXPORT const unsigned char CCUnreadManagerVersionString[];

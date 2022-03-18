@@ -6,6 +6,7 @@
 //
 
 #import "CCUnreadNode.h"
+#import "CCUnreadWeakProxy.h"
 
 @interface CCUnreadNode ()
 @property (nonatomic, strong) NSMutableSet *observers;
@@ -107,7 +108,13 @@
     if ([self.observers containsObject:observer]) {
         return;
     }
-    [self.observers addObject:observer];
+    for (CCUnreadWeakProxy *proxy in self.observers) {
+        if (proxy.target == observer) {
+            return;
+        }
+    }
+    CCUnreadWeakProxy *proxy = [CCUnreadWeakProxy proxyWithTarget:observer];
+    [self.observers addObject:proxy];
 }
 
 /// 移除监听者
@@ -120,11 +127,16 @@
 
 /// 通知更新
 - (void)notifyUpdate {
-    NSLog(@"%@",[NSString stringWithFormat:@"uid=%@, type=%lu, num=%lu", self.uid, self.type, self.num]);
+    NSMutableArray *needDelArray = [NSMutableArray array];
     [self.observers enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
         if ([obj conformsToProtocol:@protocol(CCUnreadUpdateProtocol)]) {
             [obj unreadNodeUpdate:self];
+        } else {
+            [needDelArray addObject:obj];
         }
+    }];
+    [needDelArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self removeNodeObserver:obj];
     }];
 }
 

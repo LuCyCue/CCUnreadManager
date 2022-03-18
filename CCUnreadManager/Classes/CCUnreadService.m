@@ -64,23 +64,6 @@
     }];
 }
 
-/// 移除监听
-/// @param observer 监听者
-/// @param uid 节点id
-+ (void)removeNodeObserver:(id<CCUnreadUpdateProtocol>)observer uid:(NSString *)uid {
-    CCUnreadNode *node = [self getNodeWithUid:uid];
-    [node removeNodeObserver:observer];
-}
-
-/// 批量移除监听
-/// @param observer 监听者
-/// @param uids 节点id集合
-+ (void)removeBatchNodesObserver:(id<CCUnreadUpdateProtocol>)observer uids:(NSArray<NSString *> *)uids {
-    [uids enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [self removeNodeObserver:observer uid:obj];
-    }];
-}
-
 /// 获取业务节点
 + (CCUnreadNode *)getNodeWithUid:(NSString *)uid {
     return [[CCUnreadService shareInstance].rootNode getNodeWithUid:uid];

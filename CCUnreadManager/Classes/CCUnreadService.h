@@ -43,16 +43,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param uids 节点id集合
 + (void)addBatchNodesObserver:(id<CCUnreadUpdateProtocol>)observer uids:(NSArray<NSString *> *)uids;
 
-/// 移除监听
-/// @param observer 监听者
-/// @param uid 节点id
-+ (void)removeNodeObserver:(id<CCUnreadUpdateProtocol>)observer uid:(NSString *)uid;
-
-/// 批量移除监听
-/// @param observer 监听者
-/// @param uids 节点id集合
-+ (void)removeBatchNodesObserver:(id<CCUnreadUpdateProtocol>)observer uids:(NSArray<NSString *> *)uids;
-
 /// 获取业务节点
 + (CCUnreadNode *)getNodeWithUid:(NSString *)uid;
 @end
