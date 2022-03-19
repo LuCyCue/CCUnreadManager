@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'CCUnreadManager'
   s.version          = '0.1.0'
-  s.summary          = 'App红点处理联动更新解决方案'
+  s.summary          = 'App未读角标联动更新解决方案'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-  App红点处理联动更新解决方案, 统一管理红点，联动更新
+  App未读角标联动更新解决方案, 统一管理角标，联动更新。
                        DESC
 
   s.homepage         = 'https://github.com/LuCyCue/CCUnreadManager'

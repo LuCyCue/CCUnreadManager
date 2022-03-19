@@ -69,4 +69,12 @@
     return [[CCUnreadService shareInstance].rootNode getNodeWithUid:uid];
 }
 
+/// 移除监听都
+/// @param observer 监听者
+/// @param uid 节点id
++ (void)removeNodeObserver:(id<CCUnreadUpdateProtocol>)observer uid:(NSString *)uid {
+    CCUnreadNode *node = [self getNodeWithUid:uid];
+    [node removeNodeObserver:observer];
+}
+
 @end

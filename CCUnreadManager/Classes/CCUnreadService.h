@@ -45,6 +45,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 获取业务节点
 + (CCUnreadNode *)getNodeWithUid:(NSString *)uid;
+
+/// 移除监听都
+/// @param observer 监听者
+/// @param uid 节点id
++ (void)removeNodeObserver:(id<CCUnreadUpdateProtocol>)observer uid:(NSString *)uid;
 @end
 
 NS_ASSUME_NONNULL_END

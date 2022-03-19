@@ -39,12 +39,13 @@ typedef NS_ENUM(NSUInteger, CCBadgeType) {
 * 初始化
 初始化应该在加载红点数据之前
 ```Objc
-    [CCUnreadService startWithDataSource:CCUnreadNodeConfigs.class];
+    /// 启动服务
+/// @param dataSource 节点数据源配置类
++ (void)startWithDataSource:(Class<CCUnreadDataSource>)dataSource;
 ```
 
 * 监听节点变化
-内部不会强持有监听者，不用手动移除
-监听者需要实现：CCUnreadUpdateProtocol
+内部不会强持有监听者，可以不用手动移除
 ```Objc
     /// 添加监听
 /// @param observer 监听者
@@ -56,8 +57,13 @@ typedef NS_ENUM(NSUInteger, CCBadgeType) {
 /// @param uids 节点id集合
 + (void)addBatchNodesObserver:(id<CCUnreadUpdateProtocol>)observer uids:(NSArray<NSString *> *)uids;
 ```
-
-
+监听者需要实现：CCUnreadUpdateProtocol 现行UI刷新，可以使用UIView+CCBadge 进行角标处理，
+也可直接对对应在UI进行处理
+```Objc
+- (void)unreadNodeUpdate:(CCUnreadNode *)node {
+  
+}
+```
 ## Author
 
 lucc, lccjust123@163.com

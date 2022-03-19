@@ -18,7 +18,7 @@
 @implementation CCMessageViewController
 
 - (void)dealloc {
-    [CCUnreadService removeBatchNodesObserver:self uids:@[kUnreadNodeMessageSub1,kUnreadNodeMessageSub2,kUnreadNodeMessageSub3,kUnreadNodeMessageSub4]];
+    
 }
 
 - (void)viewDidLoad {
