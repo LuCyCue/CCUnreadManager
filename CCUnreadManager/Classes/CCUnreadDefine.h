@@ -8,7 +8,7 @@
 #ifndef CCUnreadDefine_h
 #define CCUnreadDefine_h
 
-/// 红点类型（优先级从上往下）
+/// 红点类型（优先级从上往下，下面的优先级大，父节点优先显示优先级大的节点）
 typedef NS_ENUM(NSUInteger, CCBadgeType) {
     CCBadgeTypeNone,   //无
     CCBadgeTypeRedDot, //红点

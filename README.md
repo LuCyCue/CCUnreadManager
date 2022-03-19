@@ -23,7 +23,7 @@ pod 'CCUnreadManager'
 ## How to use
 * 节点类型和优先级：
 ```Objc
-/// 红点类型（优先级从上往下）
+/// 红点类型（优先级从上往下，下面的优先级大，父节点优先显示优先级大的节点）
 typedef NS_ENUM(NSUInteger, CCBadgeType) {
     CCBadgeTypeNone,   //无
     CCBadgeTypeRedDot, //红点
